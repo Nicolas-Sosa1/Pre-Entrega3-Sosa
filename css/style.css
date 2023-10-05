@@ -49,9 +49,26 @@ li {
   font-family: 'Roboto', sans-serif; }
 
 .navbar-toggler {
-  background-color: #ffffff; }
-  .navbar-toggler:hover {
-    color: black; }
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  outline: none; }
+
+.navbar-toggler {
+  background-color: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+  padding: 5px;
+  outline: none; }
+  .navbar-toggler .navbar-toggler-icon {
+    background-color: white;
+    border-radius: 2px;
+    height: 3px;
+    width: 25px;
+    transition: background-color 0.3s; }
+  .navbar-toggler .navbar-toggler:hover .navbar-toggler-icon {
+    background-color: black; }
 
 body {
   font-family: 'Roboto', sans-serif;
