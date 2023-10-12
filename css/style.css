@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box; }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #fff; }
+
+.container {
+  max-width: 1400px;
+  margin: auto; }
+
 h1 {
   font-size: 3.5em; }
 
@@ -19,62 +28,61 @@ ul {
 li {
   font-size: 1em; }
 
+/*nav*/
+.navbar-brand {
+  animation: rotate 5s infinite linear;
+  display: inline-block;
+  color: white;
+  font-size: 32px;
+  padding: 10px; }
+  .navbar-brand:hover {
+    color: white;
+    transform: scale(1.1); }
+
 .nav-link {
   transition: color;
   color: white;
   margin: 12px;
-  font-size: 16px; }
+  font-size: 16px;
+  position: relative; }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease; }
   .nav-link:hover {
-    color: aqua; }
-
-.nav-link.active {
-  color: aqua; }
-
-.text-primary {
-  color: #2c4e6f !important; }
+    color: white; }
+  .nav-link:hover::after {
+    transform: scaleX(1); }
 
 .custom-bg {
-  background-color: #1a446e;
+  background-color: black;
   padding: 13px; }
 
-.navbar-brand {
-  color: white;
-  font-size: 24px;
-  padding: 7px; }
-  .navbar-brand:hover {
-    color: #00fcfc;
-    font-size: 27px; }
-
-.navbar {
-  font-family: 'Roboto', sans-serif; }
+.navbar-toggler-bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px auto; }
 
 .navbar-toggler {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  outline: none; }
+  border: 2px solid #fff; }
 
-.navbar-toggler {
-  background-color: transparent;
-  border: 2px solid white;
-  cursor: pointer;
-  padding: 5px;
-  outline: none; }
-  .navbar-toggler .navbar-toggler-icon {
-    background-color: white;
-    border-radius: 2px;
-    height: 3px;
-    width: 25px;
-    transition: background-color 0.3s; }
-  .navbar-toggler .navbar-toggler:hover .navbar-toggler-icon {
-    background-color: black; }
+.navbar-toggler-icon {
+  background-color: #fff;
+  width: 32px;
+  height: 4px;
+  margin-bottom: 10px;
+  display: block; }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  background-color: #fff; }
-
+/*botones*/
 button {
   font-size: 1.35em;
   font-weight: bold;
@@ -82,9 +90,12 @@ button {
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   color: black;
-  background-color: white; }
+  background-color: white;
+  transition: background-color 0.3s, transform 0.3s; }
   button:hover {
-    background-color: #8f9191; }
+    background-color: #8f9191;
+    color: white;
+    transform: scale(1.1); }
 
 #button-principal {
   font-size: 1.7em;
@@ -93,14 +104,26 @@ button {
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   color: black;
-  background-color: white; }
+  background-color: white;
+  transition: background-color 0.3s, transform 0.3s; }
   #button-principal:hover {
-    background-color: #8f9191; }
+    background-color: #8f9191;
+    color: white;
+    transform: scale(1.1); }
 
-.container {
-  max-width: 1400px;
-  margin: auto; }
+@media (min-width: 1024px) {
+  #button-principal {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 10px 35px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: black;
+    background-color: white; }
+    #button-principal:hover {
+      background-color: #8f9191; } }
 
+/*imagen principal*/
 #hero {
   display: flex;
   align-content: center;
@@ -109,18 +132,38 @@ button {
   justify-content: center;
   height: 90vh;
   background-image: url("../img/principal.jpg");
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/principal.jpg");
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/principal.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   color: white;
   padding: 20px; }
   #hero h1 {
-    font-size: 52px; }
+    font-size: 80px; }
 
+/*imagen principal movil*/
+@media (max-width: 767px) {
+  #hero {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    background-image: url("../img/principal-movil.jpg");
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/principal-movil.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    padding: 20px; }
+    #hero h1 {
+      font-size: 52px; } }
+
+/*zona renta venta*/
 #rentar-vender {
-  background-color: #1a446e;
-  color: #fff;
+  background-color: #8c8c8c;
+  color: white;
   text-align: center;
   padding: 20px 20px; }
   #rentar-vender .container {
@@ -141,60 +184,19 @@ button {
       background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/comprar.jpg"); }
     #rentar-vender .carta:nth-child(3) {
       background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/vender.jpg"); }
+  #rentar-vender img {
+    width: 100%;
+    object-fit: cover; }
   #rentar-vender .opciones {
     display: grid;
     grid-template-columns: auto; }
-
-#Ofrecemos {
-  text-align: center; }
 
 .row {
   padding: 20px;
   margin: 60px; }
 
-.card-custom-shadow {
-  box-shadow: 10px 10px 10px #0d2033;
-  border-radius: 10px;
-  border-radius: 10px;
-  transition: transform 0.2s ease-in-out; }
-
-.card-custom-shadow:hover {
-  transform: scale(1.1); }
-
-@media (max-width: 768px) {
-  .col-sm-12 {
-    flex-basis: 100%;
-    max-width: 100%; }
-  .card {
-    max-height: none; }
-  .row {
-    margin: 10px -5px; }
-  .card-title,
-  .card-text {
-    font-size: 1.2rem; }
-  .card-title,
-  .card-text {
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis; } }
-
-.icono-wrap:hover img {
-  transform: scale(1.07);
-  transition: transform 0.3s ease; }
-
-@media (min-width: 720px) {
-  #button-principal {
-    font-size: 2em;
-    font-weight: bold;
-    padding: 10px 35px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    color: black;
-    background-color: white; }
-    #button-principal:hover {
-      background-color: #8f9191; }
-  #hero h1 {
-    font-size: 5em; }
+/*zona renta venta comprar escritoriio*/
+@media (min-width: 1024px) {
   #rentar-vender .opciones {
     display: flex;
     justify-content: center; }
@@ -214,24 +216,73 @@ button {
   #rentar-vender .carta:nth-child(3) {
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/vender.jpg");
     max-width: 500px; }
-  #rentar-vender main .container {
-    padding: 110px; }
-  #rentar-vender #Ofrecemos {
-    text-align: center; }
-  #rentar-vender .row {
-    padding: 20px;
-    margin: 60px; }
-  main .container {
-    padding: 110px; } }
+  #Ofrecemos {
+    text-align: center; } }
 
+/*Zona alenxandria brinda*/
+.card {
+  border-radius: 10px;
+  border: 2px solid black;
+  margin: 15px;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 350px; }
+
+.card-body {
+  max-height: 200px; }
+
+.card:hover {
+  transform: scale(1.1); }
+
+/*Zona alenxandria brinda movil*/
 @media (max-width: 768px) {
+  .col-sm-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-bottom: 20px; }
+  .card {
+    max-height: none;
+    margin: 10px; }
+  .card-title,
+  .card-text {
+    font-size: 18px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .icono-wrap:hover img {
+    transform: scale(1.07);
+    transition: transform 0.3s ease; } }
+
+/*Zona alenxandria brinda tablet*/
+@media (max-width: 1023px) {
+  .col-sm-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-bottom: 20px; }
+  .card {
+    max-height: none;
+    margin: 10px;
+    width: 100%; }
+  .card-title,
+  .card-text {
+    font-size: 18px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .icono-wrap:hover img {
+    transform: scale(1.07);
+    transition: transform 0.3s ease; } }
+
+/* zona somos alexandria mobil*/
+@media (max-width: 767px) {
   #somos-alexandria {
     width: 90% !important;
     margin: auto; } }
 
+/*footer*/
 .pie-pagina {
   width: 100%;
-  background-color: #0a141d; }
+  background-color: black; }
   .pie-pagina .grupo-1 {
     width: 100%;
     max-width: 1200px;
@@ -246,12 +297,14 @@ button {
       display: flex;
       justify-content: center;
       align-items: center; }
-    .pie-pagina .grupo-1 .box h2 {
-      color: #fff;
+      .pie-pagina .grupo-1 .box figure img {
+        width: 270px; }
+    .pie-pagina .grupo-1 .box h6 {
+      color: white;
       margin-bottom: 25px;
       font-size: 20px; }
     .pie-pagina .grupo-1 .box p {
-      color: #efefef;
+      color: white;
       margin-bottom: 10px; }
     .pie-pagina .grupo-1 .box .red-social a {
       display: inline-block;
@@ -261,93 +314,209 @@ button {
       line-height: 45px;
       color: #fff;
       margin-right: 10px;
-      background-color: #0d2033;
+      background-color: #1d1d1d;
       text-align: center;
       transition: all 300ms ease; }
       .pie-pagina .grupo-1 .box .red-social a:hover {
-        color: aqua; }
-  .pie-pagina .grupo-2 {
-    background-color: #0a1a2a;
-    padding: 15px 10px;
-    text-align: center;
-    color: #fff; }
-    .pie-pagina .grupo-2 small {
-      font-size: 15px; }
-  @media (max-width: 768px) {
-    .pie-pagina .grupo-1 {
-      width: 90%;
-      grid-template-columns: repeat(1, 1fr);
-      grid-gap: 30px;
-      padding: 35px 0px; } }
+        color: #02ff52; }
+  .pie-pagina .box ul {
+    list-style: none;
+    padding: 0; }
+    .pie-pagina .box ul li {
+      margin: 0;
+      padding: 0; }
+      .pie-pagina .box ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        position: relative;
+        margin: 12px;
+        transition: color 0.3s ease;
+        display: inline-block; }
+        .pie-pagina .box ul li a::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -3px;
+          width: 100%;
+          height: 2px;
+          background-color: white;
+          transform: scaleX(0);
+          transform-origin: 0 50%;
+          transition: transform 0.3s ease; }
+        .pie-pagina .box ul li a:hover {
+          color: white; }
+        .pie-pagina .box ul li a:hover::after {
+          transform: scaleX(1); }
 
-#local {
-  margin-top: 50px;
-  background-color: #f3f3f3;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 100px; }
-
-.mapa {
-  background: url(img/mapa.png);
-  width: 100%;
-  height: 500px; }
-
-.wrapper-local {
-  width: 50%;
-  margin-left: 100px;
-  padding-top: 150px; }
-
-#numeros-local {
-  margin: 0 !important;
-  padding: 0 !important; }
-
-#numeros-local div {
-  padding: 0 20px 0 0;
-  text-align: left;
-  height: 48px; }
-
-#numeros-local div:not(:last-child) {
-  border-right: 2px solid #3f3f3f; }
-
-#numeros-local div:not(:first-child) {
-  padding-left: 20px; }
-
-#numeros-local p {
-  margin: 0; }
-
-@media (max-width: 1200px) {
-  #intro, #equipo {
-    width: 90% !important;
-    margin: auto; }
-  #local {
-    flex-wrap: wrap;
-    padding-top: 30px; }
-  .wrapper-local {
-    width: 90%;
-    margin: auto;
-    padding-top: 50px; } }
-
+/*footer de movil*/
 @media (max-width: 768px) {
-  #intro-quienes-somos, #equipo {
-    width: 90% !important;
-    margin: auto; }
-  #img-equipo {
-    max-height: 20rem !important;
-    width: 90%; }
-  .wrapper-local {
-    width: 90%;
-    margin: auto;
-    padding-top: 50px; }
-  #local {
-    flex-wrap: wrap; }
-  .mapa img {
-    width: 100%;
-    height: auto; }
-  #bg-contactos {
-    top: -120px; }
-  #intro-quienes-somos {
-    width: 90% !important; } }
+  .pie-pagina .grupo-1 {
+    grid-template-columns: 1fr;
+    text-align: center;
+    grid-gap: 20px;
+    padding: 20px 0; }
+  .pie-pagina .box {
+    width: 100%; }
+  .pie-pagina .box figure img {
+    max-width: 80%; }
+  .pie-pagina .box h6 {
+    font-size: 18px;
+    margin-bottom: 10px; }
+  .pie-pagina .red-social a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    margin-bottom: 40px;
+    margin-bottom: 10px; } }
 
+/*footer de tablet*/
+@media (max-width: 1023px) {
+  .pie-pagina .grupo-1 {
+    grid-template-columns: 1fr;
+    text-align: center;
+    grid-gap: 20px;
+    padding: 20px 0; }
+  .pie-pagina .box {
+    width: 100%; }
+  .pie-pagina .box figure img {
+    max-width: 80%; }
+  .pie-pagina .box h6 {
+    font-size: 18px;
+    margin-bottom: 10px; }
+  .pie-pagina .red-social a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    margin-bottom: 40px;
+    margin-bottom: 10px; } }
+
+/* Zona Quienes Somos */
+.mapa {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 40px; }
+
+.text-background {
+  padding: 15px;
+  border-radius: 5px; }
+
+.wrapper-local p {
+  font-size: 24px; }
+
+#titulo-intro-quienes-somos {
+  font-size: 34px;
+  padding: 40px; }
+
+.row {
+  padding: 40px;
+  margin: 60px; }
+
+.wrapper-local h6 {
+  font-size: 42px;
+  text-align: left;
+  margin-bottom: 0; }
+
+.circular-img {
+  margin: 0;
+  width: 250px;
+  height: 175px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid black; }
+
+/* Zona Quienes Somos movil*/
+@media (max-width: 767px) {
+  .mapa {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    border-radius: 10px; }
+  .wrapper-local {
+    max-width: 100%; }
+  .wrapper-local h6 {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 0; }
+  .wrapper-local p {
+    font-size: 15px; }
+  #titulo-intro-quienes-somos {
+    font-size: 24px;
+    padding: 20px; }
+  #texto-intro-quienes-somos {
+    font-size: 18px; }
+  #carouselExampleCaptions {
+    max-height: 300px; }
+  #carouselExampleCaptions .carousel-inner .carousel-item img {
+    height: 300px;
+    width: auto; }
+  #carouselExampleCaptions .carousel-control-prev,
+  #carouselExampleCaptions .carousel-control-next {
+    width: 10%; }
+  .img-mobile {
+    max-width: 60%;
+    display: block;
+    margin: 0 auto; }
+  #servicios-fila-1 .icono-wrap,
+  #servicios-fila-2 .icono-wrap {
+    flex-direction: column;
+    text-align: center; }
+  #servicios-fila-1 h3,
+  #servicios-fila-2 h3,
+  #servicios-fila-1 p,
+  #servicios-fila-2 p {
+    font-size: 18px; }
+  .row {
+    margin: 10px -5px; } }
+
+/* Zona Quienes Somos tablet*/
+@media (max-width: 1023px) {
+  .mapa {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    border-radius: 10px; }
+  .wrapper-local {
+    max-width: 100%; }
+  .wrapper-local h2 {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 0; }
+  .wrapper-local p {
+    font-size: 32px; }
+  #titulo-intro-quienes-somos {
+    font-size: 24px;
+    padding: 20px; }
+  #texto-intro-quienes-somos {
+    font-size: 18px; }
+  #carouselExampleCaptions {
+    max-height: 300px; }
+  #carouselExampleCaptions .carousel-inner .carousel-item img {
+    height: 300px;
+    width: auto; }
+  #carouselExampleCaptions .carousel-control-prev,
+  #carouselExampleCaptions .carousel-control-next {
+    width: 10%; }
+  .img-mobile {
+    max-width: 60%;
+    display: block;
+    margin: 0 auto; }
+  #servicios-fila-1 .icono-wrap,
+  #servicios-fila-2 .icono-wrap {
+    flex-direction: column;
+    text-align: center; }
+  #servicios-fila-1 h3,
+  #servicios-fila-2 h3,
+  #servicios-fila-1 p,
+  #servicios-fila-2 p {
+    font-size: 18px; } }
+
+/*Zona de contactos*/
 .form-title {
   color: white; }
 
@@ -413,7 +582,8 @@ button {
 #contacto-pagina {
   padding: 20px; }
 
-@media (max-width: 768px) {
+/*Zona de contactos movil*/
+@media (max-width: 767px) {
   .contenedor .form {
     width: 90%;
     max-width: 100%;
@@ -433,14 +603,72 @@ button {
     .contenedor .form .form-textarea {
       font-size: 18px; } }
 
-.card-body2 {
-  padding: 10px;
-  margin-top: 5px;
-  background-color: #e8e1d4; }
+/*Zona de contacto tablet*/
+@media (max-width: 1023px) {
+  .contenedor .form {
+    width: 90%;
+    max-width: 100%;
+    margin: auto;
+    padding: 5px 20px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 3px; }
+    .contenedor .form .btn-submit {
+      width: 100%;
+      padding: 15px 0; }
+    .contenedor .form .form-label {
+      text-align: center; }
+    .contenedor .form .form-title {
+      font-size: 24px; }
+    .contenedor .form .form-input,
+    .contenedor .form .form-textarea {
+      font-size: 18px; } }
 
-.btn-custom {
-  color: white;
-  background-color: black;
-  font-family: 'Roboto', sans-serif; }
-  .btn-custom:hover {
-    color: aqua; }
+/*Rentas y Propiedades*/
+.card2 {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .card2 img {
+    margin: 20px 0; }
+  .card2 .btn-custom {
+    color: white;
+    background-color: black;
+    font-family: 'Roboto', sans-serif; }
+    .card2 .btn-custom:hover {
+      color: #02ff52; }
+
+.intro-viviendas {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 20px 0; }
+  .intro-viviendas .titulo-intro-viviendas {
+    font-size: 34px;
+    color: black;
+    padding: 20px; }
+  .intro-viviendas .texto-intro-viviendas {
+    font-size: 22px;
+    margin-bottom: 0; }
+
+.card2 {
+  margin-bottom: 10px; }
+  .card2 .card-body2 .card-title {
+    margin-top: 5px; }
+  .card2 .card-body2 .card-text {
+    margin-top: 5px; }
+
+@media (max-width: 767px) {
+  .intro-viviendas {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px 0; }
+  .titulo-intro-viviendas {
+    font-size: 28px;
+    color: black;
+    padding: 20px; }
+  .texto-intro-viviendas {
+    font-size: 18px;
+    margin-bottom: 0; }
+  .card2 {
+    margin-bottom: 10px; } }
