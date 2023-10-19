@@ -56,7 +56,7 @@ li {
 
   &:hover {
     color: white;
-    transform: scale(1.1);
+    transform: scale(1.12);
   }
 }
 
@@ -174,6 +174,7 @@ button {
 
 #hero {
   display: flex;
+  align-items: center;
   align-content: center;
   text-align: center;
   flex-direction: column;
@@ -193,6 +194,7 @@ button {
   padding: 20px;
 
   h1 {
+    margin-bottom: 40px;
     font-size: 80px;
   }
  
@@ -222,6 +224,7 @@ button {
     padding: 20px;
   
     h1 {
+      margin-bottom: 20px;
       font-size: 52px;
     }
 
@@ -229,8 +232,8 @@ button {
 }
 
 
-/*zona renta venta*/
 
+/*zona renta venta compra*/
 
 #rentar-vender {
   background-color: rgb(140, 140, 140);
@@ -238,17 +241,7 @@ button {
   text-align: center;
   padding: 20px 20px;
 
-  .container {
-    padding: 150px 12px;
-  }
 
-  .p {
-    display: none;
-  }
-
-  .h2 {
-    margin-top: 0;
-  }
 
   .carta {
     background-position: center center;
@@ -297,11 +290,97 @@ button {
   }
 }
 
-.row {
-  padding: 20px;
-  margin: 60px;
+
+
+
+/*zona renta venta compra movil*/
+
+@media (max-width:767px) {
+#rentar-vender {
+  background-color: rgb(140, 140, 140);
+  color: $color-text;
+  text-align: center;
+  padding: 20px 20px;
+
+ 
+  .carta h3 {
+    margin-top: 0;
+    font-size: 2em;
+    margin-bottom: 10px;  
+
+  }
+
+  .carta p{
+    display: none;
+  }
+
+
+  .carta {
+    background-position: center center;
+    background-size: cover;
+    padding: 50px;
+    margin: 10px;
+    border-radius: 15px;
+    border: 2px solid #000;
+
+    &:first-child {
+      background-image: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url("../img/rentar.jpg");
+        
+
+    }
+
+    &:nth-child(2) {
+      background-image: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url("../img/comprar.jpg");
+        
+
+    }
+
+    &:nth-child(3) {
+      background-image: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url("../img/vender.jpg");
+        
+
+    }
+  }
+
+  .opciones {
+    display: grid;
+    grid-template-columns: auto;
+  }
 }
 
+
+.carta button{
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 7px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: black;
+    background-color: white;
+
+    &:hover {
+      background-color: rgb(143, 145, 145);
+      color: white;
+      transform: scale(1.05);
+    }
+
+}
+}
 
 
 /*zona renta venta comprar escritoriio*/
@@ -362,12 +441,20 @@ button {
    
     }
 
-    #Ofrecemos {
-      text-align: center;
-    }
-
   }
+
+
+ /*zona renta venta comprar tablet*/ 
   
+  @media (max-width: 1023px) {
+    .carta {
+      padding: 30px;
+    }
+  
+    .carta button {
+      padding: 10px 20px;
+    }
+  }
 
 
 
@@ -648,6 +735,7 @@ button {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 40px;
+  border: 2px solid #000;
 }
 
 .text-background {
@@ -659,6 +747,15 @@ button {
   font-size: 24px;
 }
 
+
+.wrapper-local h6 {
+  font-size: 38px;
+  text-align: left;
+  margin-bottom: 0; 
+}
+
+
+
 #titulo-intro-quienes-somos {
   font-size: 34px;
   padding: 40px;
@@ -669,13 +766,6 @@ button {
   margin: 60px;
 }
 
-
-.wrapper-local h6 {
-  font-size: 42px;
-  text-align: left;
-  margin-bottom: 0; 
-}
-
 .circular-img {
   margin: 0;
   width: 250px; 
@@ -684,8 +774,9 @@ button {
   overflow: hidden; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
   border: 2px solid black; 
-}
 
+  
+}
 
 
 
@@ -836,6 +927,34 @@ button {
 
 
 
+/*Estilos generales de botones para carrusel de quienes somos*/
+
+.carousel-control-prev,
+.carousel-control-next {
+  transform: scale(1); 
+  transition: transform 0.3s ease; 
+}
+
+.carousel-control-prev .carousel-control-prev-icon,
+.carousel-control-next .carousel-control-next-icon {
+  transform: scale(1); 
+}
+
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  transform: scale(1); 
+}
+
+
+/*Estilos de botones para tablet y escritorio para carrusel de quienes somos*/
+
+@media (min-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    max-width: 120px; 
+  }
+}
 
 
 
@@ -877,17 +996,19 @@ button {
         background: rgba(0, 0, 0, 0.6);
         color: white;
         border: none;
-        outline: none;
-        border-bottom: 2px solid rgb(255, 255, 255);
+        outline: none; 
         width: 100%;
         padding: 12px;
         margin-bottom: 20px;
         border-radius: 2px;
         font-size: 14px;
-  
         resize: vertical;
         max-height: 150px;
         min-height: 50px;
+        
+        
+
+       
       }
   
       & .btn-submit {
@@ -904,7 +1025,7 @@ button {
           background: rgb(143, 145, 145);
         }
       }
-    }
+    } 
   }
   
   #foto-fondo {
@@ -928,6 +1049,15 @@ button {
     padding: 20px;
   }
   
+  .form-input:hover, 
+.form-textarea:hover {
+  border: 3px solid white; 
+  box-shadow: 0 0 7px white; 
+}
+
+
+
+
 
 /*Zona de contactos movil*/
 
@@ -999,82 +1129,50 @@ button {
 
 /*Rentas y Propiedades*/
 
-  
 .card2 {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  img {
-    margin: 20px 0;
-  }
-
-  .btn-custom {
-    color: white;
-    background-color: black;
-    font-family: 'Roboto', sans-serif;
-
-    &:hover {
-      color: rgb(2, 255, 82);
-    }
-  }
+  border: 1px solid black;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 18px;
 }
 
-.intro-viviendas {
+.card2 .carousel-inner {
+  max-height: 500px;
+}
+
+.card2 .carousel-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.card2 .card-title {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.card2 .card-text {
+  font-size: 18px;
+  margin: 10px 0;
+  color: black;
+}
+
+.btn {
+  display: block;
+  background-color: black;
+  color: #fff;
   text-align: center;
-  background-color: #f9f9f9;
-  padding: 20px 0;
-
-  .titulo-intro-viviendas {
-    font-size: 34px;
-    color: black;
-    padding: 20px;
-  }
-
-  .texto-intro-viviendas {
-    font-size: 22px;
-    margin-bottom: 0;
-  }
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 10px 0;
+  border-radius: 10px;
 }
 
-.card2 {
-  margin-bottom: 10px;
-
-  .card-body2 {
-    .card-title {
-      margin-top: 5px;
-    }
-
-    .card-text {
-      margin-top: 5px;
-    }
-  }
+.btn:hover {
+  color: rgb(2, 255, 82);
 }
 
 
 
-@media (max-width: 767px) {
-  .intro-viviendas {
-    text-align: center;
-    background-color: #f9f9f9;
-    padding: 20px 0; 
-  }
-
- 
-  .titulo-intro-viviendas {
-    font-size: 28px;
-    color: black;
-    padding: 20px; 
-  }
-
-  .texto-intro-viviendas {
-    font-size: 18px;
-    margin-bottom: 0;
-  }
-
-  .card2 {
-    margin-bottom: 10px;
-  }
-}
 
